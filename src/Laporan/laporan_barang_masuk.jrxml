@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dd3eba13-b870-4972-8f5d-6615d683713a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="d_dari" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="d_sampai" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tb_barang_masuk.`id_bm` AS tb_barang_masuk_id_bm,
+     tb_barang_masuk.`nama_supplier` AS tb_barang_masuk_nama_supplier,
+     tb_barang_masuk.`nama_barang` AS tb_barang_masuk_nama_barang,
+     tb_barang_masuk.`satuan` AS tb_barang_masuk_satuan,
+     tb_barang_masuk.`kategori` AS tb_barang_masuk_kategori,
+     tb_barang_masuk.`jumlah` AS tb_barang_masuk_jumlah,
+     tb_barang_masuk.`tanggal` AS tb_barang_masuk_tanggal
+FROM
+     `tb_barang_masuk` tb_barang_masuk
+WHERE
+tb_barang_masuk.tanggal BETWEEN $P{d_dari} AND $P{d_sampai}]]>
+	</queryString>
+	<field name="tb_barang_masuk_id_bm" class="java.lang.String"/>
+	<field name="tb_barang_masuk_nama_supplier" class="java.lang.String"/>
+	<field name="tb_barang_masuk_nama_barang" class="java.lang.String"/>
+	<field name="tb_barang_masuk_satuan" class="java.lang.String"/>
+	<field name="tb_barang_masuk_kategori" class="java.lang.String"/>
+	<field name="tb_barang_masuk_jumlah" class="java.lang.Integer"/>
+	<field name="tb_barang_masuk_tanggal" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="63" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch">
+			<rectangle>
+				<reportElement x="32" y="10" width="45" height="20" uuid="b7cc08e6-4a35-4104-b5f4-a1c4287a0b7c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="32" y="10" width="45" height="20" uuid="bc51113b-e4bc-44dc-b114-6c028f7c1bd0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="77" y="10" width="100" height="20" uuid="fee6b01e-e974-46f2-a93f-5cbc48382ccf"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="77" y="10" width="100" height="20" uuid="8b6cdd04-f302-4e52-8ec7-0b49ebde4866"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[Nama Supplier]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="177" y="10" width="100" height="20" uuid="e262b688-ad4e-496b-a71f-9abf296772af"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="177" y="10" width="100" height="20" uuid="eba9bedb-e889-4daa-a5ac-af6e69767ade"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="277" y="10" width="58" height="20" uuid="4ebae988-bdf5-4d48-afe7-ec4ab8f70400"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="277" y="10" width="58" height="20" uuid="0dce2eb6-ab9c-49cf-9edd-49d2b854d0da"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="335" y="10" width="64" height="20" uuid="6f7005b7-b13e-40f4-b0eb-775c7b2d6fdc"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="335" y="10" width="64" height="20" uuid="56db7866-eee6-4387-8fe4-1b68c4312d03"/>
+				<textElement>
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[Kategori]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="399" y="10" width="54" height="20" uuid="1c22800d-6f11-4768-8ae2-e23361d285c8"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="399" y="10" width="54" height="20" uuid="c523fbeb-1ab4-4210-901f-64a05dbd9d1a"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="453" y="10" width="60" height="20" uuid="53538d2e-0b79-4618-8007-98bb5081eba6"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="453" y="10" width="60" height="20" uuid="71ee2952-d297-47b8-aec6-7cade1d663a0"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="13"/>
+				</textElement>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="79" y="0" width="98" height="20" uuid="d0cbabea-f0cc-4852-beb5-d9c25e48366b"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="100" height="20" uuid="0e084a24-ce41-4c76-b1b5-05110b546f28"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_nama_supplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="58" height="20" uuid="8fa47e98-8ee4-4420-ae57-0b8b18a7675c"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="64" height="20" uuid="b4f56142-dbeb-4545-ac2c-3ab6e4a57ec9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_kategori}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="399" y="0" width="54" height="20" uuid="6d9e402f-8fd4-47c8-a8a5-5bd3bf4010bf"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="453" y="0" width="60" height="20" uuid="b1cbb141-9c0e-409d-acfa-86e9275dfc65"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="0" width="47" height="20" uuid="92d07e21-6126-4f38-acf5-245a25ed97a9"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Rounded MT Bold" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tb_barang_masuk_id_bm}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="15" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
