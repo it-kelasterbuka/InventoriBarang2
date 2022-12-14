@@ -183,7 +183,7 @@ public class FrmRiport extends javax.swing.JFrame {
                     hash.put("d_dari", d_dari);
                     hash.put("d_sampai", d_sampai);
 
-                    File file1 = new File("src/Laporan/laporan_barang_masuk.jrxml");
+                    File file1 = new File("src/Laporan/riport_barang_masuk.jrxml");
                     JasperDesign jasperDesign = JRXmlLoader.load(file1);
                     JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
                     JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hash, koneksi.getKoneksi());
@@ -197,7 +197,7 @@ public class FrmRiport extends javax.swing.JFrame {
                     hash.put("d_dari", d_dari);
                     hash.put("d_sampai", d_sampai);
 
-                    File file2 = new File("src/report/report_barangKeluar.jrxml");
+                    File file2 = new File("src/Laporan/riport_barang_keluar.jrxml");
                     JasperDesign jasperDesign = JRXmlLoader.load(file2);
                     JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
                     JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hash, koneksi.getKoneksi());

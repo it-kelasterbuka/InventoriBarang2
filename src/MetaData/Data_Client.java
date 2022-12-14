@@ -76,6 +76,38 @@ public class Data_Client extends javax.swing.JFrame {
         }
     }
     
+    void Cari(){
+        DefaultTableModel tb = new DefaultTableModel();
+        tb.addColumn("Kode Client");
+        tb.addColumn("Jenis Kelamin");
+        tb.addColumn("Alamat");
+        tb.addColumn("Nama");
+        tb.addColumn("No.Telpon");
+        tb.addColumn("Tanggal");
+        
+        try{
+            String sql = "SELECT * FROM  tb_client  WHERE id_client like '%" + t_cari.getText()+"%'";
+            Connection con = (Connection) koneksi.getKoneksi();
+            Statement st = con.createStatement();
+            ResultSet rs2 = st.executeQuery(sql);
+            
+            while(rs2.next()){
+                tb.addRow(new Object[]{
+                    rs2.getString("id_client"),
+                    rs2.getString("jenis_kelamin"),
+                    rs2.getString("alamat"),
+                    rs2.getString("nama_client"),
+                    rs2.getString("no_tlp"),
+                    rs2.getString("tanggal")
+                });
+                tblclient.setModel(tb);
+            }
+            
+        }catch(Exception e){
+        
+        }
+    }
+    
     public void table_client(){
         DefaultTableModel tb = new DefaultTableModel();
         tb.addColumn("Kode Client");
@@ -150,7 +182,7 @@ public class Data_Client extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblclient = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
-        jTextField5 = new javax.swing.JTextField();
+        t_cari = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
@@ -251,8 +283,13 @@ public class Data_Client extends javax.swing.JFrame {
 
         jButton5.setBackground(new java.awt.Color(0, 153, 255));
         jButton5.setText("Cari");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jTextField5.setBorder(null);
+        t_cari.setBorder(null);
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -325,7 +362,7 @@ public class Data_Client extends javax.swing.JFrame {
                         .addComponent(jButton5)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
+                            .addComponent(t_cari, javax.swing.GroupLayout.DEFAULT_SIZE, 255, Short.MAX_VALUE)
                             .addComponent(jSeparator7))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -381,7 +418,7 @@ public class Data_Client extends javax.swing.JFrame {
                 .addGap(13, 13, 13)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -482,7 +519,7 @@ public class Data_Client extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         try{
-            String sql = "SELECT * FROM tb_cient WHERE id_client ='" + idclient.getText() + "'";
+            String sql = "SELECT * FROM tb_client WHERE id_client ='" + idclient.getText() + "'";
             Connection con = (Connection)koneksi.getKoneksi();
             PreparedStatement pst = con.prepareStatement(sql);
             pst.execute();
@@ -505,6 +542,11 @@ public class Data_Client extends javax.swing.JFrame {
         t_notlp.setText(notlp);
         tglclient.setDate(getTanggalFromTable(tblclient, 5));
     }//GEN-LAST:event_tblclientMouseClicked
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        Cari();
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -566,8 +608,8 @@ public class Data_Client extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextArea t_alamat;
+    private javax.swing.JTextField t_cari;
     private javax.swing.JTextField t_namaclient;
     private javax.swing.JTextField t_notlp;
     private javax.swing.JTable tblclient;

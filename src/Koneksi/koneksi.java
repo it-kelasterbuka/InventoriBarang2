@@ -5,7 +5,8 @@
 package Koneksi;
 import java.sql.*;
 /**
- *
+ * User Database root
+ * PW Database XKycCyo*6T{U+T+R
  * @author Randi
  */
 public class koneksi {
@@ -14,7 +15,7 @@ public class koneksi {
     public static java.sql.Connection getKoneksi(){
         if(koneksi == null){
             try{
-                String url = "jdbc:mysql://localhost/db_inventori";
+                String url = "jdbc:mysql://localhost:3306/db_inventori";
                 String user = "root";
                 String Password = "";
                 

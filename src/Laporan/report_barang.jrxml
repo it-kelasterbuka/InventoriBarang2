@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="2205b93d-ad87-4a3d-b68a-4f9ab9813f0d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="524"/>
+	<style name="Title" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#FFFFFF" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tb_detail_barang_trans.`id_barang` AS tb_detail_barang_trans_id_barang,
+     tb_detail_barang_trans.`nama_barang` AS tb_detail_barang_trans_nama_barang,
+     tb_detail_barang_trans.`keterangan` AS tb_detail_barang_trans_keterangan,
+     tb_detail_barang_trans.`satuan` AS tb_detail_barang_trans_satuan,
+     tb_detail_barang_trans.`stok` AS tb_detail_barang_trans_stok,
+     tb_detail_barang_trans.`harga_satuan` AS tb_detail_barang_trans_harga_satuan,
+     tb_detail_barang_trans.`jumlah_m` AS tb_detail_barang_trans_jumlah_m,
+     tb_detail_barang_trans.`tanggal_m` AS tb_detail_barang_trans_tanggal_m,
+     tb_detail_barang_trans.`total_pemasukan` AS tb_detail_barang_trans_total_pemasukan,
+     tb_detail_barang_trans.`jumlah_k` AS tb_detail_barang_trans_jumlah_k,
+     tb_detail_barang_trans.`tanggal_k` AS tb_detail_barang_trans_tanggal_k,
+     tb_detail_barang_trans.`total_pengeluaran` AS tb_detail_barang_trans_total_pengeluaran,
+     tb_detail_barang_trans.`keuntungan` AS tb_detail_barang_trans_keuntungan
+FROM
+     `tb_detail_barang_trans` tb_detail_barang_trans]]>
+	</queryString>
+	<field name="tb_detail_barang_trans_id_barang" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_nama_barang" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_keterangan" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_satuan" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_stok" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_harga_satuan" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_jumlah_m" class="java.lang.Integer"/>
+	<field name="tb_detail_barang_trans_tanggal_m" class="java.sql.Date"/>
+	<field name="tb_detail_barang_trans_total_pemasukan" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_jumlah_k" class="java.lang.Integer"/>
+	<field name="tb_detail_barang_trans_tanggal_k" class="java.sql.Date"/>
+	<field name="tb_detail_barang_trans_total_pengeluaran" class="java.lang.String"/>
+	<field name="tb_detail_barang_trans_keuntungan" class="java.lang.String"/>
+	<background>
+		<band height="575" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="234" width="20" height="241" backcolor="#000000" uuid="815ab0d5-53c3-44fe-89d7-d80567b13384"/>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="475" width="105" height="100" backcolor="#666666" uuid="e6280353-4b94-4ef8-8ad7-8612dcd292ba"/>
+				<textField>
+					<reportElement style="Column header" x="0" y="0" width="104" height="73" forecolor="#000000" uuid="d01afaab-4734-4652-8e19-38f6fafb1fcb"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="58" isBold="true" pdfFontName="Helvetica-Bold"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="0" y="77" width="104" height="20" forecolor="#000000" uuid="37f75eda-a819-4179-a532-1000d31541e5"/>
+					<box leftPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center">
+						<font size="16" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement mode="Transparent" x="42" y="73" width="20" height="1" backcolor="#FFFFFF" uuid="19ec1c48-7493-4d4b-9fb4-f8db5318ab37"/>
+				</line>
+			</frame>
+		</band>
+	</background>
+	<title>
+		<band height="104" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="0" y="0" width="802" height="67" uuid="8988af66-72c4-4ba5-ac59-eccca6b5eb13"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="54" isBold="false" pdfFontName="Helvetica"/>
+				</textElement>
+				<text><![CDATA[Laporan Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="232" y="67" width="568" height="37" uuid="a60d4066-c982-44b7-b9ad-70107b92c922"/>
+				<textElement textAlignment="Right">
+					<font size="26"/>
+				</textElement>
+				<text><![CDATA[Lunula Beauty]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="97" y="5" width="705" height="20" backcolor="#666666" uuid="cbf2859b-f722-4122-9bca-d5cd3152ac63"/>
+				<staticText>
+					<reportElement style="Column header" x="0" y="0" width="54" height="15" uuid="ba82b352-1117-4fd3-bcba-6cd6639352f9"/>
+					<text><![CDATA[tb_detail_barang_trans_id_barang]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="54" y="0" width="54" height="15" uuid="8c7dfb12-09eb-4848-ae85-5c0aae3ee5c5"/>
+					<text><![CDATA[tb_detail_barang_trans_nama_barang]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="108" y="0" width="54" height="15" uuid="45a1a3b3-866b-434e-8b44-766bb2fc5973"/>
+					<text><![CDATA[tb_detail_barang_trans_keterangan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="162" y="0" width="54" height="15" uuid="a99ecc84-cd68-440e-b87f-b8e1909e2129"/>
+					<text><![CDATA[tb_detail_barang_trans_satuan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="216" y="0" width="54" height="15" uuid="3f11eb57-ee81-4dbe-a0f8-15796d779fc8"/>
+					<text><![CDATA[tb_detail_barang_trans_stok]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="270" y="0" width="54" height="15" uuid="37d0e8fd-8382-465b-91e2-5bfbf52ca30f"/>
+					<text><![CDATA[tb_detail_barang_trans_harga_satuan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="324" y="0" width="54" height="15" uuid="c70bd37d-8047-4fa7-b569-88e9b35b4b30"/>
+					<text><![CDATA[tb_detail_barang_trans_jumlah_m]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="378" y="0" width="54" height="15" uuid="317f9a54-292d-4e29-b70e-cf02279ed9a5"/>
+					<text><![CDATA[tb_detail_barang_trans_tanggal_m]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="432" y="0" width="54" height="15" uuid="6c06d896-ef9e-4462-8027-71c3f8474fc0"/>
+					<text><![CDATA[tb_detail_barang_trans_total_pemasukan]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="486" y="0" width="54" height="15" uuid="d854154e-3a59-4757-b7a7-e19984b27401"/>
+					<text><![CDATA[tb_detail_barang_trans_jumlah_k]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="540" y="0" width="54" height="15" uuid="331256f9-c805-49fc-b939-881f0cf36a73"/>
+					<text><![CDATA[tb_detail_barang_trans_tanggal_k]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="594" y="0" width="54" height="15" uuid="41addb6b-e315-4dc3-ad84-7ccd1cd91e2e"/>
+					<text><![CDATA[tb_detail_barang_trans_total_pengeluaran]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" x="648" y="0" width="54" height="15" uuid="e743c12d-29cc-4b06-97d5-aeb93f215bb2"/>
+					<text><![CDATA[tb_detail_barang_trans_keuntungan]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<frame>
+				<reportElement x="97" y="1" width="705" height="15" uuid="bffef109-f48f-42ce-bed4-ab0d36cf6f9c"/>
+				<textField>
+					<reportElement style="Detail" x="0" y="0" width="54" height="15" uuid="bff2a991-e676-46c1-b01d-e2b57fdd77b7"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_id_barang}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="54" y="0" width="54" height="15" uuid="57140ae2-32db-4996-996a-294a31a69c8f"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_nama_barang}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="108" y="0" width="54" height="15" uuid="8773d2b8-a929-425c-8693-c82f2897888f"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_keterangan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="162" y="0" width="54" height="15" uuid="4ffae54f-d93c-41fc-b411-198cf68eb89a"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_satuan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="216" y="0" width="54" height="15" uuid="0fec3a43-6285-4949-bf61-46cc4dbad5ce"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_stok}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="270" y="0" width="54" height="15" uuid="c3326ebf-04f7-483f-bdc5-b8639e8416dd"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_harga_satuan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="324" y="0" width="54" height="15" uuid="815010f9-2fe5-460c-a434-6331bdb6d02f"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_jumlah_m}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="378" y="0" width="54" height="15" uuid="c937144a-dde4-470e-91a4-d35691fab9f7"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_tanggal_m}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="432" y="0" width="54" height="15" uuid="18d81ba9-ebf8-4477-a14d-36388a633392"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_total_pemasukan}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="486" y="0" width="54" height="15" uuid="a6bac187-1dad-4994-9dc6-ef6ec1cf0956"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_jumlah_k}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="540" y="0" width="54" height="15" uuid="e74931c1-9759-4af5-b746-e84991d8325f"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_tanggal_k}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="594" y="0" width="54" height="15" uuid="4f345bf7-0e9e-4056-998b-ecc97296b395"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_total_pengeluaran}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Detail" x="648" y="0" width="54" height="15" uuid="f8845831-b194-4333-9c11-f5e2313c4526"/>
+					<textFieldExpression><![CDATA[$F{tb_detail_barang_trans_keuntungan}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="97" y="16" width="705" height="1" uuid="d9948d0a-7f8a-4f05-ba4e-14f9a66b3c18"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="671" y="0" width="131" height="20" forecolor="#000000" uuid="89d19275-9ac2-43e4-8e3a-b347f4f021e9"/>
+				<textElement textAlignment="Right">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="96" y="0" width="267" height="20" uuid="8632e0c1-8727-4089-94cd-56e581dde277"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Silhouette Title Report]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -4,9 +4,14 @@
  */
 package LoginPage;
 import MetaData.Dashboard;
+import static MetaData.Dashboard.Laporan;
+import static MetaData.Dashboard.lbl_nama;
+import static MetaData.Dashboard.lbl_status;
+import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -214,11 +219,15 @@ public class user_login extends javax.swing.JFrame {
             Statement stat = koneksi.createStatement();
             ResultSet rs = stat.executeQuery("Select * from tb_user where username ='"
             +t_user.getText() + "'" + "and password = '" + t_pass.getText()
-            + "'" + "and role ='" + cb_userLog.getSelectedItem() + "'");
+            + "'" + "and role ='" + cb_userLog.getSelectedItem() + "'");            
             
             rs.next();
             if (t_user.getText().equals("username") && t_pass.getText().equals("password") && cb_userLog.getSelectedItem().equals("role")){
                 a.setVisible(true);
+                Laporan.setEnabled(true);
+                
+                lbl_nama.setText(rs.getString(3));
+                lbl_status.setText(rs.getString(5));
                 
                 t_user.setText("");
                 t_pass.setText("");
@@ -227,6 +236,10 @@ public class user_login extends javax.swing.JFrame {
             }else if(rs.getRow()>=1){
                 if(cb_userLog.getSelectedItem().equals("Manajer")){
                     a.setVisible(true);
+                    Laporan.setEnabled(true);
+                    
+                    lbl_nama.setText(rs.getString(3));
+                    lbl_status.setText(rs.getString(5));
                     
                     t_user.setText("");
                     t_pass.setText("");
@@ -234,6 +247,10 @@ public class user_login extends javax.swing.JFrame {
                     this.dispose();
                 } else if(cb_userLog.getSelectedItem().equals("Petugas")) {
                     a.setVisible(true);
+                    Laporan.setEnabled(false);
+                    
+                    lbl_nama.setText(rs.getString(3));
+                    lbl_status.setText(rs.getString(5));
                     
                     t_user.setText("");
                     t_pass.setText("");
@@ -246,7 +263,7 @@ public class user_login extends javax.swing.JFrame {
                     a.setVisible(false);
             }
         
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
             System.out.println("Eror "+e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed

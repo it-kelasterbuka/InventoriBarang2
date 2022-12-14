@@ -79,6 +79,42 @@ public class Data_Supplier extends javax.swing.JFrame {
         }
     }
     
+    void Cari(){
+        DefaultTableModel tb = new DefaultTableModel();
+        tb.addColumn("Kode Supplier");
+        tb.addColumn("Nama");
+        tb.addColumn("Alamat");
+        tb.addColumn("No.Telpon");
+        tb.addColumn("Norek");
+        tb.addColumn("Bank");
+        tb.addColumn("Email");
+        tb.addColumn("Tanggal");
+        
+        try{
+            String sql = "SELECT * FROM  tb_supplier  WHERE id_supplier like '%" + t_cari.getText()+"%'";
+            Connection con = (Connection) koneksi.getKoneksi();
+            Statement st = con.createStatement();
+            ResultSet rs2 = st.executeQuery(sql);
+            
+            while(rs2.next()){
+                tb.addRow(new Object[]{
+                    rs2.getString("id_supplier"),
+                    rs2.getString("nama_supplier"),
+                    rs2.getString("alamat"),
+                    rs2.getString("no_tlp"),
+                    rs2.getString("norek"),
+                    rs2.getString("bank"),
+                    rs2.getString("email"),
+                    rs2.getString("tanggal")
+                });
+                tblsup.setModel(tb);
+            }
+            
+        }catch(Exception e){
+        
+        }
+    }
+    
     public void table_supp(){
         DefaultTableModel tb = new DefaultTableModel();
         tb.addColumn("Kode Supplier");
@@ -161,7 +197,7 @@ public class Data_Supplier extends javax.swing.JFrame {
         t_bank = new javax.swing.JTextField();
         t_noRek = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jTextField7 = new javax.swing.JTextField();
+        t_cari = new javax.swing.JTextField();
         jSeparator3 = new javax.swing.JSeparator();
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator5 = new javax.swing.JSeparator();
@@ -276,7 +312,7 @@ public class Data_Supplier extends javax.swing.JFrame {
             }
         });
 
-        jTextField7.setBorder(null);
+        t_cari.setBorder(null);
 
         jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
 
@@ -326,7 +362,7 @@ public class Data_Supplier extends javax.swing.JFrame {
                                 .addGap(29, 29, 29)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -431,7 +467,7 @@ public class Data_Supplier extends javax.swing.JFrame {
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(t_cari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton5))
                         .addGap(0, 0, 0)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -439,7 +475,6 @@ public class Data_Supplier extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(22, 22, 22))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(0, 0, 0)
                         .addComponent(tglsup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -475,6 +510,7 @@ public class Data_Supplier extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
+        Cari();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -642,9 +678,9 @@ public class Data_Supplier extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextArea t_alamatSup;
     private javax.swing.JTextField t_bank;
+    private javax.swing.JTextField t_cari;
     private javax.swing.JTextField t_email;
     private javax.swing.JTextField t_namaSup;
     private javax.swing.JTextField t_noRek;
