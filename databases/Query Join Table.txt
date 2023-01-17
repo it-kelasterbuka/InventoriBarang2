@@ -1,1 +1,15 @@
-jsja
+CREATE VIEW tb_detail_barang_trans AS
+SELECT
+    tb_barang.*,
+    tb_barang_masuk.harga_satuan,
+    tb_barang_masuk.jumlah_m,
+    tb_barang_masuk.tanggal_m,
+    tb_barang_masuk.total_pemasukan,
+    tb_barang_keluar.jumlah_k,
+    tb_barang_keluar.tanggal_k,
+    tb_barang_keluar.total_pengeluaran,
+    tb_barang_keluar.keuntungan
+FROM
+    tb_barang
+INNER JOIN tb_barang_masuk ON tb_barang.id_barang = tb_barang_masuk.id_barang
+INNER JOIN tb_barang_keluar ON tb_barang.id_barang = tb_barang_keluar.id_barang
