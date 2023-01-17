@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d3d2e477-65a5-4885-8354-2defc3423109">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="53"/>
+	<property name="ireport.y" value="145"/>
+	<parameter name="d_kode" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tb_barang_keluar.`id_bk` AS tb_barang_keluar_id_bk,
+     tb_barang_keluar.`id_client` AS tb_barang_keluar_id_client,
+     tb_barang_keluar.`nama_client` AS tb_barang_keluar_nama_client,
+     tb_barang_keluar.`id_barang` AS tb_barang_keluar_id_barang,
+     tb_barang_keluar.`nama_barang` AS tb_barang_keluar_nama_barang,
+     tb_barang_keluar.`satuan` AS tb_barang_keluar_satuan,
+     tb_barang_keluar.`harga_satuan` AS tb_barang_keluar_harga_satuan,
+     tb_barang_keluar.`harga_pengeluaran` AS tb_barang_keluar_harga_pengeluaran,
+     tb_barang_keluar.`keterangan` AS tb_barang_keluar_keterangan,
+     tb_barang_keluar.`jumlah_k` AS tb_barang_keluar_jumlah_k,
+     tb_barang_keluar.`tanggal_k` AS tb_barang_keluar_tanggal_k,
+     tb_barang_keluar.`total_pengeluaran` AS tb_barang_keluar_total_pengeluaran,
+     tb_barang_keluar.`pembayaran` AS tb_barang_keluar_pembayaran,
+     tb_barang_keluar.`kembalian` AS tb_barang_keluar_kembalian,
+     tb_barang_keluar.`keuntungan` AS tb_barang_keluar_keuntungan
+FROM
+     `tb_barang_keluar` tb_barang_keluar
+WHERE id_bk = $P{d_kode}]]>
+	</queryString>
+	<field name="tb_barang_keluar_id_bk" class="java.lang.String"/>
+	<field name="tb_barang_keluar_id_client" class="java.lang.String"/>
+	<field name="tb_barang_keluar_nama_client" class="java.lang.String"/>
+	<field name="tb_barang_keluar_id_barang" class="java.lang.String"/>
+	<field name="tb_barang_keluar_nama_barang" class="java.lang.String"/>
+	<field name="tb_barang_keluar_satuan" class="java.lang.String"/>
+	<field name="tb_barang_keluar_harga_satuan" class="java.lang.String"/>
+	<field name="tb_barang_keluar_harga_pengeluaran" class="java.lang.String"/>
+	<field name="tb_barang_keluar_keterangan" class="java.lang.String"/>
+	<field name="tb_barang_keluar_jumlah_k" class="java.lang.Integer"/>
+	<field name="tb_barang_keluar_tanggal_k" class="java.sql.Date"/>
+	<field name="tb_barang_keluar_total_pengeluaran" class="java.lang.String"/>
+	<field name="tb_barang_keluar_pembayaran" class="java.lang.String"/>
+	<field name="tb_barang_keluar_kembalian" class="java.lang.String"/>
+	<field name="tb_barang_keluar_keuntungan" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="15" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="145" splitType="Stretch">
+			<staticText>
+				<reportElement x="318" y="0" width="206" height="38" uuid="b86546f2-16ee-43f5-8e09-a99b657c9eb5"/>
+				<textElement>
+					<font fontName="Times New Roman" size="24"/>
+				</textElement>
+				<text><![CDATA[LUNULA BEAUTY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="294" y="38" width="246" height="31" uuid="e8f4ef0a-1641-4a85-8c6f-c420e8cd2562"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="12"/>
+				</textElement>
+				<text><![CDATA[Jalan Raya Lenteng Agung, Lenteng Agung, Jagakarsa, Jakarta Selatan]]></text>
+			</staticText>
+			<line>
+				<reportElement x="297" y="92" width="243" height="1" uuid="a456972f-d9f1-483e-8615-d3b662b2e9fd"/>
+			</line>
+			<image>
+				<reportElement x="186" y="0" width="108" height="105" uuid="5cf8c14f-9c29-4cea-ac35-1c59de0a3675"/>
+				<imageExpression><![CDATA["E:\\Documents\\NetBeansProjects\\InventoriBarang\\src\\icon\\flashscreen.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="20" backcolor="#000000" uuid="8338b122-a9f9-4951-9215-db646ade1812"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="48" height="20" forecolor="#FFFFFF" uuid="76a936a2-e2d1-4e6e-9bdb-baf245698f31"/>
+				<text><![CDATA[ID BK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="48" y="0" width="49" height="20" forecolor="#FFFFFF" uuid="8c03cf3b-49c2-4b96-a2e3-abfc8d9659a5"/>
+				<text><![CDATA[ID Client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="0" width="69" height="20" forecolor="#FFFFFF" uuid="9c116b14-57ce-4d2e-8b4e-1acdf00210b1"/>
+				<text><![CDATA[Nama Client]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="166" y="0" width="53" height="20" forecolor="#FFFFFF" uuid="0e1254ca-e7ce-47e5-84cd-70a578b65592"/>
+				<text><![CDATA[ID Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="0" width="65" height="20" forecolor="#FFFFFF" uuid="cc34c8ca-9a65-4fde-86fc-da82af4253ae"/>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="284" y="0" width="41" height="20" forecolor="#FFFFFF" uuid="2c69b3f2-9380-42be-9cba-c470fed162ac"/>
+				<text><![CDATA[Satuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="0" width="39" height="20" forecolor="#FFFFFF" uuid="fa5c1589-4a87-4652-88a5-4469cb1f8cbd"/>
+				<text><![CDATA[Harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="0" width="67" height="20" forecolor="#FFFFFF" uuid="1764985e-8b97-4dbe-a25a-dbaaf02346cd"/>
+				<text><![CDATA[Pengeluaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="431" y="0" width="53" height="20" forecolor="#FFFFFF" uuid="1bfd3adf-e96c-4159-a12b-d20898e860d5"/>
+				<text><![CDATA[Keterangan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="484" y="0" width="53" height="20" forecolor="#FFFFFF" uuid="aa6cc451-3370-44ae-b19e-b9aabf18a172"/>
+				<text><![CDATA[Jml Keluar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="537" y="0" width="53" height="20" forecolor="#FFFFFF" uuid="361bb964-f948-4565-a596-e75cc9138a76"/>
+				<text><![CDATA[Tgl Keluar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="590" y="0" width="38" height="20" forecolor="#FFFFFF" uuid="6d80a51e-8e2b-4254-8aea-b610d6ef4df2"/>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="628" y="0" width="68" height="20" forecolor="#FFFFFF" uuid="3273dafa-15da-4e13-80fa-85e3ff0c7b82"/>
+				<text><![CDATA[Pembayaran]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="696" y="0" width="53" height="20" forecolor="#FFFFFF" uuid="639df4a9-155b-421a-b28f-da8021ed7e8a"/>
+				<text><![CDATA[Kembalian]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="749" y="0" width="53" height="20" forecolor="#FFFFFF" uuid="58cd0757-f5e9-4d38-83de-4ee0894d2279"/>
+				<text><![CDATA[Keuntungan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="48" height="20" uuid="a9ad5947-79f9-4b93-8c84-a1e0fea48c6c"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_id_bk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="48" y="0" width="49" height="20" uuid="5e5f88df-1e38-44df-b0d3-e5703aeafbde"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_id_client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="97" y="0" width="69" height="20" uuid="7d4d7271-6360-48bf-ac0d-5d0f72c3081f"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_nama_client}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="65" height="20" uuid="2c37d830-ea68-4be1-a96a-7576126991ae"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_nama_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="166" y="0" width="53" height="20" uuid="f9fdcca8-c27c-4e3b-81ee-1f5b57d0dd0f"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_id_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="0" width="41" height="20" uuid="c75da96a-f0f7-4a71-9805-a4752e8ffffa"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="0" width="39" height="20" uuid="477df270-0051-49ae-9419-733f3e087d0e"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_harga_satuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="364" y="0" width="67" height="20" uuid="d5088a79-6612-46e7-9315-d60dd8fc6681"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_harga_pengeluaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="0" width="53" height="20" uuid="9788e638-4af7-4f23-9844-695853296f23"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_keterangan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="0" width="53" height="20" uuid="d830d5e6-702a-4aa2-88ae-aad578d10c3a"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_jumlah_k}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="0" width="43" height="20" uuid="3bd9f87c-633f-4b06-808b-e68c2d5b5a4a"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_tanggal_k}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="590" y="0" width="38" height="20" uuid="fed8b85b-14f2-43ce-93bf-2f660e356ead"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_total_pengeluaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="628" y="0" width="68" height="20" uuid="a606213a-acae-4f78-be08-074dcead4daf"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_pembayaran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="696" y="0" width="53" height="20" uuid="ea67a63e-d217-4cf8-8a24-2fd0216ebaef"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_kembalian}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="749" y="0" width="53" height="20" uuid="9dc6ca6a-31a5-4d71-b715-8fa4f1212a30"/>
+				<textFieldExpression><![CDATA[$F{tb_barang_keluar_keuntungan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="150" splitType="Stretch">
+			<staticText>
+				<reportElement x="658" y="119" width="131" height="17" uuid="75b6a52c-6531-475d-b4dd-633b23e255a7"/>
+				<textElement>
+					<font fontName="Times New Roman" size="14"/>
+				</textElement>
+				<text><![CDATA[Riesha Amanda Fitria]]></text>
+			</staticText>
+			<line>
+				<reportElement x="658" y="119" width="118" height="1" uuid="1e8231ad-0067-4d63-87cf-e2123818a608"/>
+			</line>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="689" y="44" width="100" height="20" uuid="bcff3888-3106-476f-aad6-7f756de2e073"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="33" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

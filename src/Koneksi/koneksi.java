@@ -7,6 +7,7 @@ import java.sql.*;
 /**
  * User Database root
  * PW Database XKycCyo*6T{U+T+R
+ * Github Key = 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
  * @author Randi
  */
 public class koneksi {

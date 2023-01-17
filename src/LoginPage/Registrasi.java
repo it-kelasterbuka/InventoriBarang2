@@ -101,7 +101,7 @@ public class Registrasi extends javax.swing.JFrame {
 
         t_pass_r.setBorder(null);
 
-        cb_user_r.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User", "Manajer", "Petugas" }));
+        cb_user_r.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User", "Manajer", "Admin" }));
 
         jButton1.setBackground(new java.awt.Color(102, 255, 102));
         jButton1.setText("Registrasi");

@@ -53,17 +53,15 @@ public class user_login extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel3.setBackground(new java.awt.Color(0, 153, 255));
 
-        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(102, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        t_user.setBackground(new java.awt.Color(102, 255, 255));
         t_user.setBorder(null);
         t_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,7 +69,6 @@ public class user_login extends javax.swing.JFrame {
             }
         });
 
-        t_pass.setBackground(new java.awt.Color(102, 255, 255));
         t_pass.setBorder(null);
 
         jButton1.setBackground(new java.awt.Color(102, 255, 102));
@@ -88,7 +85,7 @@ public class user_login extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Sitka Small", 0, 18)); // NOI18N
         jLabel2.setText("Password");
 
-        cb_userLog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User", "Manajer", "Petugas" }));
+        cb_userLog.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select User", "Manajer", "Admin" }));
 
         jButton2.setBackground(new java.awt.Color(102, 255, 102));
         jButton2.setText("Registrasi");
@@ -151,36 +148,25 @@ public class user_login extends javax.swing.JFrame {
                 .addGap(33, 33, 33))
         );
 
-        jLabel3.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
-        jLabel3.setText("INVENTORI");
-
-        jLabel4.setFont(new java.awt.Font("Wide Latin", 1, 18)); // NOI18N
-        jLabel4.setText("BARANG");
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/flashscreen.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(64, 64, 64)))
+                .addGap(67, 67, 67)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(72, 72, 72)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -245,7 +231,7 @@ public class user_login extends javax.swing.JFrame {
                     t_pass.setText("");
                     cb_userLog.setSelectedItem("Manajer");
                     this.dispose();
-                } else if(cb_userLog.getSelectedItem().equals("Petugas")) {
+                } else if(cb_userLog.getSelectedItem().equals("Admin")) {
                     a.setVisible(true);
                     Laporan.setEnabled(false);
                     
@@ -254,7 +240,7 @@ public class user_login extends javax.swing.JFrame {
                     
                     t_user.setText("");
                     t_pass.setText("");
-                    cb_userLog.setSelectedItem("Petugas");
+                    cb_userLog.setSelectedItem("Admin");
                     this.dispose();
                 }
                 stat.close();
@@ -321,7 +307,6 @@ public class user_login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

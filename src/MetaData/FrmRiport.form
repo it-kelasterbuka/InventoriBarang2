@@ -75,16 +75,18 @@
                                   <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="cmbid_laporan" pref="195" max="32767" attributes="0"/>
                                   <Component id="txtd_dari" max="32767" attributes="0"/>
                                   <Component id="txtd_sampai" max="32767" attributes="0"/>
+                                  <Component id="tKode" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="51" max="32767" attributes="0"/>
+                      <EmptySpace pref="28" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -107,8 +109,13 @@
                           <Component id="txtd_sampai" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="tKode" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
                       <Component id="btncetak" min="-2" pref="38" max="-2" attributes="0"/>
-                      <EmptySpace pref="11" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -141,11 +148,13 @@
             <Component class="javax.swing.JComboBox" name="cmbid_laporan">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                  <StringArray count="4">
+                  <StringArray count="6">
                     <StringItem index="0" value="Pilih"/>
                     <StringItem index="1" value="Persedian Barang"/>
                     <StringItem index="2" value="Barang Masuk"/>
                     <StringItem index="3" value="Barang Keluar"/>
+                    <StringItem index="4" value="Data Client"/>
+                    <StringItem index="5" value="Kode Barang Keluar"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -170,6 +179,16 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btncetakActionPerformed"/>
               </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel4">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Sylfaen" size="14" style="0"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Kode Barang Keluar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tKode">
             </Component>
           </SubComponents>
         </Container>

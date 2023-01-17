@@ -228,7 +228,7 @@
               <StringArray count="3">
                 <StringItem index="0" value="Select User"/>
                 <StringItem index="1" value="Manajer"/>
-                <StringItem index="2" value="Petugas"/>
+                <StringItem index="2" value="Admin"/>
               </StringArray>
             </Property>
           </Properties>

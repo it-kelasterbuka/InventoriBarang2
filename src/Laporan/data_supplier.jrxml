@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9d3d3d26-c672-4b47-b237-5f103c0b58c0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     tb_supplier.`id_supplier` AS tb_supplier_id_supplier,
+     tb_supplier.`nama_supplier` AS tb_supplier_nama_supplier,
+     tb_supplier.`alamat` AS tb_supplier_alamat,
+     tb_supplier.`no_tlp` AS tb_supplier_no_tlp,
+     tb_supplier.`norek` AS tb_supplier_norek,
+     tb_supplier.`bank` AS tb_supplier_bank,
+     tb_supplier.`email` AS tb_supplier_email,
+     tb_supplier.`tanggal` AS tb_supplier_tanggal
+FROM
+     `tb_supplier` tb_supplier]]>
+	</queryString>
+	<field name="tb_supplier_id_supplier" class="java.lang.String"/>
+	<field name="tb_supplier_nama_supplier" class="java.lang.String"/>
+	<field name="tb_supplier_alamat" class="java.lang.String"/>
+	<field name="tb_supplier_no_tlp" class="java.lang.String"/>
+	<field name="tb_supplier_norek" class="java.lang.String"/>
+	<field name="tb_supplier_bank" class="java.lang.String"/>
+	<field name="tb_supplier_email" class="java.lang.String"/>
+	<field name="tb_supplier_tanggal" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="802" height="20" backcolor="#000000" uuid="782f259c-e3c7-4684-b86e-b5cb4c77760d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="d88ee454-11bf-42e5-9cae-447a9cd7837f"/>
+				<text><![CDATA[tb_supplier_id_supplier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="3df4e0fb-16b1-4640-a72d-c2c618ff1b3c"/>
+				<text><![CDATA[tb_supplier_bank]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="d563effc-f08a-4ab0-932e-b0a6dbcb5442"/>
+				<text><![CDATA[tb_supplier_norek]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="c9ab20a1-b42f-471b-b88f-5223b025c1eb"/>
+				<text><![CDATA[tb_supplier_no_tlp]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="400" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="099ad579-3ead-43ef-809e-f975c2be5c49"/>
+				<text><![CDATA[tb_supplier_nama_supplier]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="0a713e6b-41b4-4f8e-8874-cbfba2aee8a9"/>
+				<text><![CDATA[tb_supplier_email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="600" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="bf45d222-c569-4155-92fa-96caddee8331"/>
+				<text><![CDATA[tb_supplier_tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="700" y="0" width="100" height="20" forecolor="#FFFFFF" uuid="efa73be6-5317-4174-9381-8610108e6022"/>
+				<text><![CDATA[tb_supplier_alamat]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="3e20ce9e-c26e-4e35-8676-46bc28dd4ab1"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_id_supplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="bd599fe3-24e6-488c-99cc-9ad651180f08"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_bank}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="65cdead0-ec4b-45b2-8f28-66e83ab14eb9"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_norek}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="458fcdc2-cf1c-42d1-9fd4-33660ce2eeb9"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_no_tlp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="0" width="100" height="20" uuid="608c3e87-b851-4b09-b2bd-9dd6367ac64d"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_nama_supplier}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="100" height="20" uuid="83ee1ab1-fbc1-4eab-8928-85868591b0e7"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="600" y="0" width="100" height="20" uuid="3d444a9c-5ff0-4259-af39-786cf5c95546"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="700" y="0" width="100" height="20" uuid="b71e1697-c95e-49f6-8901-8d88a05234ab"/>
+				<textFieldExpression><![CDATA[$F{tb_supplier_alamat}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="13" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

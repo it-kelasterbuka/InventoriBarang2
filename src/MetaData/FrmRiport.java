@@ -34,6 +34,11 @@ public class FrmRiport extends javax.swing.JFrame {
     private void dateEnabled(boolean x){
         txtd_dari.setEnabled(x);
         txtd_sampai.setEnabled(x);
+        tKode.setEnabled(x);
+    }
+    
+    private void kodeEnabled(boolean x){
+        tKode.setEnabled(x);
     }
 
     /**
@@ -54,6 +59,8 @@ public class FrmRiport extends javax.swing.JFrame {
         txtd_dari = new com.toedter.calendar.JDateChooser();
         txtd_sampai = new com.toedter.calendar.JDateChooser();
         btncetak = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        tKode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,7 +77,7 @@ public class FrmRiport extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
         jLabel3.setText("Sampai Tanggal");
 
-        cmbid_laporan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Persedian Barang", "Barang Masuk", "Barang Keluar" }));
+        cmbid_laporan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Pilih", "Persedian Barang", "Barang Masuk", "Barang Keluar", "Data Client", "Kode Barang Keluar" }));
         cmbid_laporan.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cmbid_laporanItemStateChanged(evt);
@@ -85,6 +92,9 @@ public class FrmRiport extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Sylfaen", 0, 14)); // NOI18N
+        jLabel4.setText("Kode Barang Keluar");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -97,13 +107,15 @@ public class FrmRiport extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4))
                         .addGap(28, 28, 28)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmbid_laporan, 0, 195, Short.MAX_VALUE)
                             .addComponent(txtd_dari, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtd_sampai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(51, Short.MAX_VALUE))
+                            .addComponent(txtd_sampai, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tKode))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,8 +133,12 @@ public class FrmRiport extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(txtd_sampai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tKode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(btncetak, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(11, Short.MAX_VALUE))
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -172,6 +188,49 @@ public class FrmRiport extends javax.swing.JFrame {
             }
             this.hide();
             break;
+            
+            case "Data Client":
+            try {
+                File file = new File("src/Laporan/data_client.jrxml");
+                JasperDesign jasperDesign = JRXmlLoader.load(file);
+                JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, koneksi.getKoneksi());
+                JasperViewer.viewReport(jasperPrint, false);
+            }catch (JRException e) {
+                JOptionPane.showMessageDialog(null, "Error " + e);
+            }
+            this.hide();
+            break;
+            
+//            case "Data Supplier":
+//            try {
+//                File file = new File("src/Laporan/data_supplier.jrxml");
+//                JasperDesign jasperDesign = JRXmlLoader.load(file);
+//                JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+//                JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, koneksi.getKoneksi());
+//                JasperViewer.viewReport(jasperPrint, false);
+//            }catch (JRException e) {
+//                JOptionPane.showMessageDialog(null, "Error " + e);
+//            }
+//            this.hide();
+//            break;
+            
+            case "Kode Barang Keluar":
+            try {
+                    HashMap hash = new HashMap();
+                    hash.put("d_kode", tKode.getText());
+
+                    File file3 = new File("src/Laporan/kd_barang_keluar.jrxml");
+                    JasperDesign jasperDesign = JRXmlLoader.load(file3);
+                    JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+                    JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hash, koneksi.getKoneksi());
+                    JasperViewer.viewReport(jasperPrint, false);
+                }catch (JRException e) {
+                    JOptionPane.showMessageDialog(null, "Error " + e);
+            }
+            this.hide();
+            break;
+            
             default:
             SimpleDateFormat date;
             date = new SimpleDateFormat("yyyy-MM-dd");
@@ -183,7 +242,7 @@ public class FrmRiport extends javax.swing.JFrame {
                     hash.put("d_dari", d_dari);
                     hash.put("d_sampai", d_sampai);
 
-                    File file1 = new File("src/Laporan/riport_barang_masuk.jrxml");
+                    File file1 = new File("src/Laporan/report_barang_masuk.jrxml");
                     JasperDesign jasperDesign = JRXmlLoader.load(file1);
                     JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
                     JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hash, koneksi.getKoneksi());
@@ -197,7 +256,7 @@ public class FrmRiport extends javax.swing.JFrame {
                     hash.put("d_dari", d_dari);
                     hash.put("d_sampai", d_sampai);
 
-                    File file2 = new File("src/Laporan/riport_barang_keluar.jrxml");
+                    File file2 = new File("src/Laporan/report_barang_keluar.jrxml");
                     JasperDesign jasperDesign = JRXmlLoader.load(file2);
                     JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
                     JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, hash, koneksi.getKoneksi());
@@ -214,10 +273,14 @@ public class FrmRiport extends javax.swing.JFrame {
     private void cmbid_laporanItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbid_laporanItemStateChanged
         // TODO add your handling code here:
         String id_laporan = cmbid_laporan.getSelectedItem().toString();
-        if(id_laporan.equals("Persedian Barang") || id_laporan.equals("Pilih")){
+        if(id_laporan.equals("Persedian Barang") || id_laporan.equals("Data Client") || id_laporan.equals("Pilih")){
             dateEnabled(false);
+            kodeEnabled(false);
+        }else if(id_laporan.equals("Kode Barang Keluar") || id_laporan.equals("Pilih")){
+            kodeEnabled(true);
         }else{
             dateEnabled(true);
+            kodeEnabled(false);
             txtd_dari.requestFocus();
         }
     }//GEN-LAST:event_cmbid_laporanItemStateChanged
@@ -263,8 +326,10 @@ public class FrmRiport extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField tKode;
     private com.toedter.calendar.JDateChooser txtd_dari;
     private com.toedter.calendar.JDateChooser txtd_sampai;
     // End of variables declaration//GEN-END:variables
